@@ -1,0 +1,80 @@
+﻿@import url(http://fonts.googleapis.com/css?family=Raleway:700,800);
+
+html, body {
+    margin: 0;
+}
+
+:focus {
+    outline: none;
+}
+
+::-webkit-input-placeholder {
+    color: #DEDFDF;
+}
+
+::-moz-placeholder {
+    color: #DEDFDF;
+}
+
+:-moz-placeholder {
+    color: #DEDFDF;
+}
+
+:-ms-input-placeholder {
+    color: #DEDFDF;
+}
+
+body {
+    background: #a19e9e;
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+header.forHeader{
+    background: #fff;
+}
+li {
+    color: black;
+}
+    li:hover {
+        text-decoration: underline;
+    }
+button {
+    background: #4db185;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+    font-size: 25px;
+    height: 40px;
+    width: 90px;
+    overflow: hidden;
+    transition: all .3s cubic-bezier(.6,0,.4,1);
+}
+    button:hover {
+        background: #3cd491;
+    }
+
+label {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 800;
+    opacity: .5;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    transition: all .3s cubic-bezier(.6,0,.4,1);
+    opacity: 1;
+}
+
+a.blueLinks {
+    color: #00ffff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: double;
+}

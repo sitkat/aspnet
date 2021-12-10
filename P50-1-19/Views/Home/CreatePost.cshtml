@@ -1,0 +1,23 @@
+﻿@model P50_1_19.Entities.PostDTO
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post</title>
+    <link rel="stylesheet" href="~/css/style1.css" />
+    <a class="goProfile" asp-action="PersonalPage" asp-controller="Home">Профиль</a>
+</head>
+
+<body>
+    <div id="some">
+        <form asp-action="CreatePost" asp-controller="Home" method="post" autocomplete="off">
+            <label for="signin">Создание поста</label>
+            <input placeholder="Заголовок" asp-for="title" type="text">
+            <input placeholder="Текст" asp-for="body" type="text" name="body">
+            <button type="submit" class="btn btn-success">Создать</button>
+        </form>
+    </div>
+</body>

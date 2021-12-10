@@ -1,0 +1,25 @@
+﻿@model P50_1_19.Models.Post
+@{
+    Layout = null;
+}
+<link rel="stylesheet" href="~/css/styleDelete.css" />
+<div>
+    <dl class="dl-horizontal">
+        <dt style="text-align:center">Вы уверены, что хотите удалить эту запись?</dt>
+        <dt>Заголовок:</dt>
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+        <dt>Текст:</dt>
+        <dd>
+            @Html.DisplayFor(model => model.body)
+        </dd>
+    </dl>
+    <div>
+        <form asp-controller="Home" asp-action="DeletePost" method="post">
+            <div class="form-group">
+                <button type="submit" class="btn btn-default">Удалить</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@model dynamic
+@{
+    Layout = null;
+}
+
+
+<title>Post</title>
+<link rel="stylesheet" href="~/css/stylePersonal.css" />
+<a asp-action="PersonalPage" asp-controller="Home">Профиль</a>
+<img src="https://cdn-icons-png.flaticon.com/512/1/1625.png" height="30" width="2" />
+<a asp-action="ForUsers" asp-controller="Home">Посты</a>
+<img src="https://cdn-icons-png.flaticon.com/512/1/1625.png" height="30" width="2" />
+<a asp-action="CreatePost" asp-controller="Home">Создать пост</a>
+<h2>Логин: @Model.User.Login</h2>
+<br />
+<body>
+    @foreach (Post post in Model.Posts)
+    {
+        <div>
+            <h3>@post.title</h3>
+            <p>@post.body</p>
+            <div style="justify-content:end; display:flex; border:none; margin:0px 10px 0px 0px;">
+                <a class="btnDelete" style="background:red; border:1px solid;
+                     margin:5px; text-decoration:none; font-size:17px; text-align:right;
+                    align-content:end" asp-action="DeletePost" asp-controller="home" asp-route-id="@post.Id">Удалить</a>
+            </div>
+            
+        </div>
+    }
+</body>

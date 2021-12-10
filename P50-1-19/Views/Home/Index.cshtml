@@ -1,0 +1,50 @@
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = "Все пользователи";
+}
+
+<link rel="stylesheet" type="text/css" href="/css/styleIndex.css">
+<a class="blueLinks" asp-action="create"> Добавить пользователя</a>
+<form method="get" asp-action="index">
+    <label class="col-form-label">ID: </label>
+    <input type="number" min="1" name="id" value="@Model.FilterViewModel.SelectId" />
+    <label class="col-form-label">Login: </label>
+    <input type="text" name="login" value="@Model.FilterViewModel.SelectLogin" />
+    <button type="submit" >Поиск</button>
+</form>
+<table class="table">
+    <tr>
+        <td>
+            <a class="blueLinks" asp-action="Index" asp-route-sortOrder="@Model.SortViewModel.IdSort" asp-route-id="@Model.FilterViewModel.SelectId"
+               asp-route-login="@Model.FilterViewModel.SelectLogin">Id</a>
+        </td>
+        <td>
+            <a class="blueLinks" asp-action="Index" asp-route-sortOrder="@Model.SortViewModel.LoginSort" asp-route-id="@Model.FilterViewModel.SelectId"
+               asp-route-login="@Model.FilterViewModel.SelectLogin">Login</a>
+        </td>
+    </tr>
+    @foreach (var item in Model.Users)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Login</td>
+            <td><a class="blueLinks" asp-action="details" asp-controller="home" asp-route-id="@item.Id">Подробнее</a></td>
+            <td><a class="blueLinks" asp-action="delete" asp-controller="home" asp-route-id="@item.Id">Удалить</a></td>
+            <td><a class="blueLinks" asp-action="edit" asp-controller="home" asp-route-id="@item.Id">Изменить</a></td>
+        </tr>
+    }
+</table>
+@if (Model.PageViewModel.HasPreviousPage)
+{
+    <a class="blueLinks" asp-route-page="@(Model.PageViewModel.PageNumber-1)"
+       asp-route-sortOrder="@Model.SortViewModel.Current"
+       asp-route-id="@Model.FilterViewModel.SelectId"
+       asp-route-login="@Model.FilterViewModel.SelectLogin">Назад</a>
+}
+@if (Model.PageViewModel.HasNextPage)
+{
+    <a class="blueLinks" asp-route-page="@(Model.PageViewModel.PageNumber+1)"
+       asp-route-sortOrder="@Model.SortViewModel.Current"
+       asp-route-id="@Model.FilterViewModel.SelectId"
+       asp-route-login="@Model.FilterViewModel.SelectLogin">Вперёд</a>
+}

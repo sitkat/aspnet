@@ -1,0 +1,26 @@
+﻿@model P50_1_19.Models.LoginViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title> 
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/style1.css" />
+</head>
+<body>
+    <form method="post" asp-controller="Account" asp-action="Login">
+        <div asp-validation-summary="ModelOnly"></div>
+        <label for="signin">Авторизация</label>
+        <div id="wrapper">
+            <input asp-for="Email" id="email" placeholder="Почта" type="text">
+            <input asp-for="Password" id="pass" placeholder="Пароль" type="password">
+        </div>
+        <button type="submit">Войти</button>
+        <a class="forButtonReg" asp-action="register">Зарегистрироваться</a>
+    </form>
+</body>
+</html>
