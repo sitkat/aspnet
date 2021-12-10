@@ -189,7 +189,7 @@ namespace P50_1_19.Controllers
         }
 
         [HttpPost("/create")]
-        public async Task<IActionResult> CreatePost(PostDTO newPost)
+        public async Task<IActionResult> CreatePost(PostDTO newPost, IFormFile file)
         {
             Post post = new Post();
             post.body = newPost.body;
@@ -198,7 +198,17 @@ namespace P50_1_19.Controllers
             User user = await db.Users.FirstOrDefaultAsync(user => user.Login == User.Identity.Name);
             post.author = user.Login;
 
-
+            if (file != null)
+            {
+                string path = "/Files/" + file.FileName;
+                using (FileStream fileStream = new FileStream(_app.WebRootPath + path, FileMode.Create))
+                {
+                    await file.CopyToAsync(fileStream);
+                    post.photo = path;
+                }
+                
+            }
+            
             db.Posts.Add(post);
             db.SaveChanges();
 

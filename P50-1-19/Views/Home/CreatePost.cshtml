@@ -13,10 +13,11 @@
 
 <body>
     <div id="some">
-        <form asp-action="CreatePost" asp-controller="Home" method="post" autocomplete="off">
+        <form asp-action="CreatePost" asp-controller="Home" method="post" autocomplete="off" enctype="multipart/form-data">
             <label for="signin">Создание поста</label>
             <input placeholder="Заголовок" asp-for="title" type="text">
             <input placeholder="Текст" asp-for="body" type="text" name="body">
+            <input type="file" name="file" />
             <button type="submit" class="btn btn-success">Создать</button>
         </form>
     </div>
